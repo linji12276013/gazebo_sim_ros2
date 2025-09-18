@@ -1,0 +1,9 @@
+# Default initial positions for exchanger's ros2_control fake system
+
+initial_positions:
+  elink1_joint: 0
+  elink2_joint: 0
+  elink3_joint: 0
+  elink4_joint: 0
+  elink5_joint: 0
+  elink6_joint: 0

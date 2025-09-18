@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- base_link参数 -->
+  <xacro:property name="ebase_link_joint" value="${[0, 0, 0, 0, 0, 0]}"/>
+  <xacro:property name="ebase_link_limits" value="${[0, 0]}"/>
+  <xacro:property name="ebase_link_link" value="${[0, 0, 0.01, 0, 0, 0]}"/>
+  <xacro:property name="ebase_link_inertial" value="${[0, 0, 0.01]}"/>
+
+  <!-- link1参数 -->
+  <xacro:property name="elink1_joint" value="${[0, 0, 0.02, 0, 0, 0]}"/>
+  <xacro:property name="elink1_limits" value="${[-1.57, 1.57]}"/>
+  <xacro:property name="elink1_link" value="${[0, 0, 0.4, 0, 0, 0]}"/>
+  <xacro:property name="elink1_inertial" value="${[-1.3878E-17, 0, 0.41]}"/>
+
+  <!-- link2参数 -->
+  <xacro:property name="elink2_joint" value="${[0.1, 0, 0.8, -1.5708, 1.3074, 0]}"/>
+  <xacro:property name="elink2_limits" value="${[-1.22, 1.57]}"/>
+  <xacro:property name="elink2_link" value="${[-0.1, -0.4, 0, 0, 1.5708, 1.5708]}"/>
+  <xacro:property name="elink2_inertial" value="${[-0.1, -0.4, 0]}"/>
+
+  <!-- link3参数 -->
+  <xacro:property name="elink3_joint" value="${[0, -0.8, 0, 0, 0, 1.9913]}"/>
+  <xacro:property name="elink3_limits" value="${[-1.57, 1.01]}"/>
+  <xacro:property name="elink3_link" value="${[-0.05, -0.2, 0, 0, 1.5708, 1.5708]}"/>
+  <xacro:property name="elink3_inertial" value="${[-0.05, -0.2, 0]}"/>
+
+  <!-- link4参数 -->
+  <xacro:property name="elink4_joint" value="${[-0.05, -0.4, 0, 1.5708, 0, 0]}"/>
+  <xacro:property name="elink4_limits" value="${[-3.14, 3.14]}"/>
+  <xacro:property name="elink4_link" value="${[0, 0, 0.1, 0, 0, 0]}"/>
+  <xacro:property name="elink4_inertial" value="${[-1.1102E-16, -1.7997E-17, 0.1]}"/>
+
+  <!-- link5参数 -->
+  <xacro:property name="elink5_joint" value="${[-0.05, 0, 0.2, -1.5708, -1.728, 0]}"/>
+  <xacro:property name="elink5_limits" value="${[-1.01, 1.5708]}"/>
+  <xacro:property name="elink5_link" value="${[0.05, -0.05, 0, 0, 1.5708, 0]}"/>
+  <xacro:property name="elink5_inertial" value="${[-0.05, -0.05, 3.13E-19]}"/>
+
+  <!-- link6参数 -->
+  <xacro:property name="elink6_joint" value="${[0.05, -0.125, 0, 1.5708, 0, 0]}"/>
+  <xacro:property name="elink6_limits" value="${[-1.5708, 1.5708]}"/>
+  <xacro:property name="elink6_link" value="${[0, 0, 0, 0, 0, 0]}"/>
+  <xacro:property name="elink6_inertial" value="${[-6.1756E-16, 3.0762E-16, 0.14137]}"/>
+
+</robot>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find engineer_description)/urdf/exchanger/engineer_exchanger.gazebo"/>
+
+  <xacro:macro name="engineer_exchanger_arm" params="prefix parent joint_origin limit link_origin inertial_origin m a h">
+    <joint name="${prefix}_joint" type="revolute">
+      <parent link="${parent}"/>
+      <child link="${prefix}"/>
+      <origin xyz="${joint_origin[0]} ${joint_origin[1]} ${joint_origin[2]}" rpy="${joint_origin[3]} ${joint_origin[4]} ${joint_origin[5]}"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${limit[0]}" upper="${limit[1]}" effort="0" velocity="0" />
+    </joint>
+
+    <link name="${prefix}">
+      <visual>
+        <origin xyz="${link_origin[0]} ${link_origin[1]} ${link_origin[2]}" rpy="${link_origin[3]} ${link_origin[4]} ${link_origin[5]}" />
+        <geometry>
+          <box size="${a} ${a} ${h}" />
+        </geometry>
+        <material name="">
+          <color rgba="0.1 0.1 0.1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="${link_origin[0]} ${link_origin[1]} ${link_origin[2]}" rpy="${link_origin[3]} ${link_origin[4]} ${link_origin[5]}" />
+        <geometry>
+          <box size="${a} ${a} ${h}" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="${inertial_origin[0]} ${inertial_origin[1]} ${inertial_origin[2]}" rpy="0 0 0" />
+        <mass value="${m}" />
+        <inertia ixx="${1/12 * m * (a*a + h*h)}" ixy="0" ixz="0"
+                 iyy="${1/12 * m * (a*a + h*h)}" iyz="0" 
+                 izz="${1/6 * m * a*a}" />
+      </inertial>
+    </link>
+  </xacro:macro>
+
+</robot>

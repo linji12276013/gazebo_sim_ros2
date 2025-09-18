@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot>
+
+  <!-- 机械臂ros2_control -->
+  <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <joint name="elink1_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+              <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="elink2_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+              <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="elink3_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+              <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="elink4_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+              <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="elink5_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+              <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="elink6_joint">
+            <command_interface name="position"/>
+            <state_interface name="position">
+              <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+
+    <!-- 加载ros2_control插件 -->
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="exchanger_ros2_control">
+            <ros>
+              <namespace>exchanger</namespace>
+            </ros>
+            <parameters>$(find engineer_gazebo_sim)/gazebo_classic/config/exchanger_ros2_controllers.yaml</parameters>
+            <robot_param>robot_description</robot_param>
+            <robot_param_node>robot_state_publisher</robot_param_node>
+            <!-- <robotBaseFrame>ebase_link</robotBaseFrame> -->
+        </plugin>
+    </gazebo>
+
+</robot>

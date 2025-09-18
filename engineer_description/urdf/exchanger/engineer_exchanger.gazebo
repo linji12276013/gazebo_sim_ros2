@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="engineer_exchanger_gazebo" params="prefix color">
+    <gazebo reference="${prefix}">
+      <material>Gazebo/${color}</material>
+      <self_collide>false</self_collide>
+      <gravity>true</gravity>
+    </gazebo>
+  </xacro:macro>
+</robot>

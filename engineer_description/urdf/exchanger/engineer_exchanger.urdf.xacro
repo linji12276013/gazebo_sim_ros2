@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="exchanger">
+  
+  <!-- Import parameters -->
+  <xacro:include filename="$(find engineer_description)/urdf/exchanger/engineer_exchanger_parameters.xacro" />
+
+  <!-- Import arm -->
+  <xacro:include filename="$(find engineer_description)/urdf/exchanger/engineer_exchanger_arm.urdf.xacro"/>
+
+  <!-- Import plugin -->
+  <xacro:include filename="$(find engineer_description)/urdf/exchanger/engineer_exchanger_plugin.gazebo"/>
+
+  <link name="world"/>
+  <joint name="world_ebase_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="world"/>
+    <child link="ebase_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+
+  <link name="ebase_link">
+    <visual>
+     <origin rpy="0 0 0" xyz="0 0 0.01"/>
+      <geometry>
+        <box size="1 1 0.02"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.01"/>
+      <geometry>
+        <box size="1 1 0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.01"/>
+      <mass value="32"/>
+      <inertia ixx="2.66773" ixy="0" ixz="0" iyy="2.66773" iyz="0" izz="5.33333"/>
+    </inertial>
+  </link>
+
+  <xacro:engineer_exchanger_arm prefix="elink1" parent="ebase_link" joint_origin="${elink1_joint}" limit="${elink1_limits}" 
+                                link_origin="${elink1_link}" inertial_origin="${elink1_inertial}" m="32" a="0.2" h="0.8" />
+  <xacro:engineer_exchanger_arm prefix="elink2" parent="elink1" joint_origin="${elink2_joint}" limit="${elink2_limits}" 
+                                link_origin="${elink2_link}" inertial_origin="${elink2_inertial}" m="32" a="0.2" h="0.8" />
+  <xacro:engineer_exchanger_arm prefix="elink3" parent="elink2" joint_origin="${elink3_joint}" limit="${elink3_limits}" 
+                                link_origin="${elink3_link}" inertial_origin="${elink3_inertial}" m="4" a="0.1" h="0.4" />
+  <xacro:engineer_exchanger_arm prefix="elink4" parent="elink3" joint_origin="${elink4_joint}" limit="${elink4_limits}" 
+                                link_origin="${elink4_link}" inertial_origin="${elink4_inertial}" m="2" a="0.1" h="0.2" />
+  <xacro:engineer_exchanger_arm prefix="elink5" parent="elink4" joint_origin="${elink5_joint}" limit="${elink5_limits}" 
+                                link_origin="${elink5_link}" inertial_origin="${elink5_inertial}" m="1" a="0.1" h="0.1" />
+  <xacro:engineer_exchanger_arm prefix="elink6" parent="elink5" joint_origin="${elink6_joint}" limit="${elink6_limits}" 
+                                link_origin="${elink6_link}" inertial_origin="${elink6_inertial}" m="0.5" a="0.1" h="0.05" />
+
+  <link name="ore">
+    <inertial>
+      <origin xyz="0.094742 9.16E-05 9.16E-05" rpy="0 0 0" />
+      <mass value="9.723" />
+      <inertia ixx="0.20405" ixy="-0.00011824" ixz="-0.00011824" iyy="0.15607" iyz="-0.0001037" izz="0.153" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find engineer_description)/meshes/ore.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find engineer_description)/meshes/ore.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ore_joint" type="fixed">
+    <origin xyz="0 0 0.025" rpy="0 -1.5708 0" />
+    <parent link="elink6" />
+    <child link="ore" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="light">
+    <inertial>
+      <origin xyz="-0.14286 9.5298E-18 3.4312E-18" rpy="0 0 0" />
+      <mass value="10.08" />
+      <inertia ixx="0.21341" ixy="1.4488E-17" ixz="-1.4271E-17" iyy="0.16211" iyz="-1.4162E-17" izz="0.16211" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find engineer_description)/meshes/light.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 1 1" />
+        <emissive>1 0 0 1</emissive>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find engineer_description)/meshes/light.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="light_joint" type="fixed">
+    <origin xyz="0.24 0 0" rpy="0 0 0" />
+    <parent link="ore" />
+    <child link="light" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <xacro:engineer_exchanger_gazebo prefix="ebase_link" color="Black"/>
+  <xacro:engineer_exchanger_gazebo prefix="elink1" color="Black"/>
+  <xacro:engineer_exchanger_gazebo prefix="elink2" color="Black"/>
+  <xacro:engineer_exchanger_gazebo prefix="elink3" color="Black"/>
+  <xacro:engineer_exchanger_gazebo prefix="elink4" color="Black"/>
+  <xacro:engineer_exchanger_gazebo prefix="elink5" color="Black"/>
+  <xacro:engineer_exchanger_gazebo prefix="elink6" color="Black"/>
+  <xacro:engineer_exchanger_gazebo prefix="ore" color="Black"/>
+  <gazebo reference="light">
+    <visual name="">
+      <geometry>
+        <mesh>
+          <uri>file://$(find engineer_description)/meshes/light.STL</uri>
+        </mesh>
+      </geometry>
+      <material>
+        <ambient>0 0 0 1</ambient>
+        <diffuse>0 0 0 1</diffuse>
+        <specular>0 0 0 0</specular>
+        <emissive>1 0 0 1</emissive>
+      </material>
+    </visual>
+  </gazebo>
+
+</robot>

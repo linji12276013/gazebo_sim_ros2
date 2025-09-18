@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find engineer_description)/urdf/robot/engineer_depth_camera.gazebo"/>
+
+  <xacro:macro name="engineer_depth_camera" params="prefix parent origin_x origin_y origin_z rotation_x rotation_y rotation_z">
+    <joint name="${prefix}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}_link"/>
+      <origin xyz="${origin_x} ${origin_y} ${origin_z}" rpy="${rotation_x} ${rotation_y} ${rotation_z}"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="${prefix}_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <cylinder radius="0.0002" length="0.0002"/>
+        </geometry>
+        <material name="black">
+          <color rgba="0.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="${prefix}_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+      <parent link="${prefix}_link"/>
+      <child link="${prefix}_optical_link"/>
+    </joint>
+
+    <link name="${prefix}_optical_link"/>
+  </xacro:macro>
+
+</robot>
