@@ -8,8 +8,16 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(control_msgs REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit_servo REQUIRED)
+find_package(OpenCV REQUIRED)
+find_package(cv_bridge REQUIRED)
 
 
 if(BUILD_TESTING)
@@ -38,9 +46,24 @@ ament_target_dependencies(keyboard_control "rclcpp" "geometry_msgs")
 add_executable(exchanger_control gazebo_classic/src/exchanger_control.cpp)
 ament_target_dependencies(exchanger_control "rclcpp" "geometry_msgs" "moveit_ros_planning_interface")
 
+add_executable(engineer_simple_control gazebo_classic/src/engineer_simple_control.cpp)
+ament_target_dependencies(engineer_simple_control "rclcpp" "geometry_msgs" "moveit_ros_planning_interface")
+
+add_executable(engineer_servo gazebo_classic/src/engineer_servo_control.cpp)
+ament_target_dependencies(engineer_servo "rclcpp" "geometry_msgs" "moveit_ros_planning_interface" "moveit_servo")
+
+add_executable(servo_keyboard_input gazebo_classic/src/servo_keyboard_input.cpp)
+ament_target_dependencies(servo_keyboard_input "rclcpp" "geometry_msgs" "control_msgs")
+
+add_executable(image_raw_process gazebo_classic/src/image_raw_process.cpp)
+ament_target_dependencies(image_raw_process "rclcpp" "sensor_msgs" "OpenCV" "cv_bridge")
+
+add_executable(chassis_pid_control gazebo_classic/src/chassis_pid_control.cpp)
+ament_target_dependencies(chassis_pid_control "rclcpp" "geometry_msgs" "nav_msgs" "tf2_ros")
+
 install(TARGETS 
-  keyboard_control exchanger_control
-  DESTINATION lib/${PROJECT_NAME}/gazebo_classic
+  keyboard_control exchanger_control engineer_simple_control engineer_servo servo_keyboard_input image_raw_process chassis_pid_control
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()

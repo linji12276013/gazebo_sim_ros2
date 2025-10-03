@@ -64,7 +64,7 @@ def generate_launch_description():
                         # namespace='exchanger',
                         arguments=['-topic', '/exchanger/robot_description',
                                    '-entity', f'{robot2_name_in_model}',
-                                   '-x', '2.5',
+                                   '-x', '2',
                                    '-Y', '3.1415926',
                                    ],
                         output='screen')
@@ -174,6 +174,12 @@ def generate_launch_description():
             )
     )
 
+    chassis_pid_node = Node(
+        package="engineer_gazebo_sim",
+        executable="chassis_pid_control",
+        output="screen",
+    )
+
     ld = LaunchDescription([
         close_evt1,
         close_evt2,
@@ -184,6 +190,7 @@ def generate_launch_description():
         node_robot_state_publisher2,
         node_robot_state_publisher1,
         spawn_entity2,
+        chassis_pid_node,
     ])
 
     return ld

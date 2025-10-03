@@ -10,14 +10,6 @@
   <!-- Import plugin -->
   <xacro:include filename="$(find engineer_description)/urdf/exchanger/engineer_exchanger_plugin.gazebo"/>
 
-  <link name="world"/>
-  <joint name="world_ebase_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="world"/>
-    <child link="ebase_link"/>
-    <axis xyz="0 0 0"/>
-  </joint>
-
   <link name="ebase_link">
     <visual>
      <origin rpy="0 0 0" xyz="0 0 0.01"/>
@@ -36,8 +28,8 @@
     </collision>
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.01"/>
-      <mass value="32"/>
-      <inertia ixx="2.66773" ixy="0" ixz="0" iyy="2.66773" iyz="0" izz="5.33333"/>
+      <mass value="3200"/>
+      <inertia ixx="266.773" ixy="0" ixz="0" iyy="266.773" iyz="0" izz="533.333"/>
     </inertial>
   </link>
 
@@ -129,9 +121,9 @@
         </mesh>
       </geometry>
       <material>
-        <ambient>0 0 0 1</ambient>
-        <diffuse>0 0 0 1</diffuse>
-        <specular>0 0 0 0</specular>
+        <ambient>1 0 0 1</ambient>
+        <diffuse>1 0 0 1</diffuse>
+        <specular>1 0 0 0</specular>
         <emissive>1 0 0 1</emissive>
       </material>
     </visual>

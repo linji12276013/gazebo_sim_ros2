@@ -47,8 +47,10 @@
     </collision>
   </link>
 
+  
+
   <xacro:engineer_wheel_LF prefix="LF" parent="base_link" origin_x="0.20286" origin_y="0.2023" origin_z="-0.012411" rotation_x="-1.5708"/>
-  <xacro:engineer_roller prefix="roller_LF_1" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z1}"/>
+  <!-- <xacro:engineer_roller prefix="roller_LF_1" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z1}"/>
   <xacro:engineer_roller prefix="roller_LF_2" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z2}"/>
   <xacro:engineer_roller prefix="roller_LF_3" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z3}"/>
   <xacro:engineer_roller prefix="roller_LF_4" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z4}"/>
@@ -63,10 +65,10 @@
   <xacro:engineer_roller prefix="roller_LF_13" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z13}"/>
   <xacro:engineer_roller prefix="roller_LF_14" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z14}"/>
   <xacro:engineer_roller prefix="roller_LF_15" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z15}"/>
-  <xacro:engineer_roller prefix="roller_LF_16" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z16}"/>
+  <xacro:engineer_roller prefix="roller_LF_16" parent="wheel_LF" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z16}"/> -->
 
   <xacro:engineer_wheel_RF prefix="RF" parent="base_link" origin_x="0.20286" origin_y="-0.2023" origin_z="-0.012411" rotation_x="-1.5708"/>
-  <xacro:engineer_roller prefix="roller_RF_1" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z1}"/>
+  <!-- <xacro:engineer_roller prefix="roller_RF_1" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z1}"/>
   <xacro:engineer_roller prefix="roller_RF_2" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z2}"/>
   <xacro:engineer_roller prefix="roller_RF_3" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z3}"/>
   <xacro:engineer_roller prefix="roller_RF_4" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z4}"/>
@@ -81,10 +83,10 @@
   <xacro:engineer_roller prefix="roller_RF_13" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z13}"/>
   <xacro:engineer_roller prefix="roller_RF_14" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z14}"/>
   <xacro:engineer_roller prefix="roller_RF_15" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z15}"/>
-  <xacro:engineer_roller prefix="roller_RF_16" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z16}"/>
+  <xacro:engineer_roller prefix="roller_RF_16" parent="wheel_RF" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z16}"/> -->
 
   <xacro:engineer_wheel_RB prefix="RB" parent="base_link" origin_x="-0.20286" origin_y="-0.2023" origin_z="-0.012411" rotation_x="-1.5708"/>
-  <xacro:engineer_roller prefix="roller_RB_1" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z1}"/>
+  <!-- <xacro:engineer_roller prefix="roller_RB_1" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z1}"/>
   <xacro:engineer_roller prefix="roller_RB_2" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z2}"/>
   <xacro:engineer_roller prefix="roller_RB_3" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z3}"/>
   <xacro:engineer_roller prefix="roller_RB_4" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z4}"/>
@@ -99,10 +101,10 @@
   <xacro:engineer_roller prefix="roller_RB_13" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z13}"/>
   <xacro:engineer_roller prefix="roller_RB_14" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z14}"/>
   <xacro:engineer_roller prefix="roller_RB_15" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z15}"/>
-  <xacro:engineer_roller prefix="roller_RB_16" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z16}"/>
+  <xacro:engineer_roller prefix="roller_RB_16" parent="wheel_RB" origin_z="${roller_origin_z1}" rotation_x="${roller_rotation_x1}" rotation_z="${roller_rotation_z16}"/> -->
 
   <xacro:engineer_wheel_LB prefix="LB" parent="base_link" origin_x="-0.20286" origin_y="0.2023" origin_z="-0.012411" rotation_x="-1.5708"/>
-  <xacro:engineer_roller prefix="roller_LB_1" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z1}"/>
+  <!-- <xacro:engineer_roller prefix="roller_LB_1" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z1}"/>
   <xacro:engineer_roller prefix="roller_LB_2" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z2}"/>
   <xacro:engineer_roller prefix="roller_LB_3" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z3}"/>
   <xacro:engineer_roller prefix="roller_LB_4" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z4}"/>
@@ -117,7 +119,7 @@
   <xacro:engineer_roller prefix="roller_LB_13" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z13}"/>
   <xacro:engineer_roller prefix="roller_LB_14" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z14}"/>
   <xacro:engineer_roller prefix="roller_LB_15" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z15}"/>
-  <xacro:engineer_roller prefix="roller_LB_16" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z16}"/>
+  <xacro:engineer_roller prefix="roller_LB_16" parent="wheel_LB" origin_z="${roller_origin_z2}" rotation_x="${roller_rotation_x2}" rotation_z="${roller_rotation_z16}"/> -->
 
   <xacro:engineer_boom prefix="link1" parent="base_link" joint_origin="${link1_joint}" limit="${link1_limits}" 
                        inertial_origin="${link1_inertial}" mass="${link1_mass}" inertia="${link1_inertia}"/>
@@ -133,7 +135,33 @@
                        inertial_origin="${link6_inertial}" mass="${link6_mass}" inertia="${link6_inertia}"/>
   <xacro:engineer_boom prefix="link7" parent="link6" joint_origin="${link7_joint}" limit="${link7_limits}" 
                        inertial_origin="${link7_inertial}" mass="${link7_mass}" inertia="${link7_inertia}"/>
-  
+
+  <joint name="gripper_joint" type="fixed">
+    <origin xyz="0 0 0.019" rpy="0 0 0"/>
+    <parent link="link7"/>
+    <child link="gripper_link"/>
+  </joint>
+  <link name="gripper_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="1.6E-09" ixy="0" ixz="0"
+               iyy="1.6E-09" iyz="0" izz="1.6E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
   <xacro:engineer_little_arm prefix="left_z" parent="base_link" joint_type="prismatic" joint_origin="${left_z_joint}" joint_axis="${left_z_axis}" 
                              limit="${left_z_limits}" inertial_origin="${left_z_inertial}" mass="${left_z_mass}" inertia="${left_z_inertia}"/>
   <xacro:engineer_little_arm prefix="left_x" parent="left_z_link" joint_type="prismatic" joint_origin="${left_x_joint}" joint_axis="${left_x_axis}"
@@ -148,7 +176,7 @@
   <xacro:engineer_little_arm prefix="right_yaw" parent="right_x_link" joint_type="revolute" joint_origin="${right_yaw_joint}" joint_axis="${right_yaw_axis}"
                              limit="${right_yaw_limits}" inertial_origin="${right_yaw_inertial}" mass="${right_yaw_mass}" inertia="${right_yaw_inertia}"/>
 
-  <xacro:engineer_depth_camera prefix="engineer_depth_camera" parent="link4" origin_x="0" origin_y="0" origin_z="0.075" rotation_x="0" rotation_y="0" rotation_z="0"/>
+  <xacro:engineer_depth_camera prefix="engineer_depth_camera" parent="link3" origin_x="0.152" origin_y="-0.078" origin_z="0.0" rotation_x="1.5708" rotation_y="0" rotation_z="0"/>
 
   <!-- Wheel Trans -->
   <xacro:engineer_wheel_trans prefix="LF"/>
@@ -157,13 +185,97 @@
   <xacro:engineer_wheel_trans prefix="LB"/>
 
   <!-- Wheel Gazebo -->
-  <xacro:engineer_wheel_gazebo prefix="LF"/>
+  <!-- <xacro:engineer_wheel_gazebo prefix="LF"/>
   <xacro:engineer_wheel_gazebo prefix="RF"/>
   <xacro:engineer_wheel_gazebo prefix="RB"/>
-  <xacro:engineer_wheel_gazebo prefix="LB"/>
+  <xacro:engineer_wheel_gazebo prefix="LB"/> -->
+
+  <gazebo reference="wheel_LF">
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+    <!-- <mu1>50</mu1>
+    <mu2>50</mu2> -->
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>50.0</mu>
+            <mu2>0.0</mu2>
+            <fdir1>1 -1 0</fdir1>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <kp>1e50</kp>
+    <kd>1e50</kd>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="wheel_RF">
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+    <!-- <mu1>50</mu1>
+    <mu2>50</mu2> -->
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>50.0</mu>
+            <mu2>0.0</mu2>
+            <fdir1>1 1 0</fdir1>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <kp>1e50</kp>
+    <kd>1e50</kd>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="wheel_RB">
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+    <!-- <mu1>50</mu1>
+    <mu2>50</mu2> -->
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>50.0</mu>
+            <mu2>0.0</mu2>
+            <fdir1>1 -1 0</fdir1>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <kp>1e50</kp>
+    <kd>1e50</kd>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="wheel_LB">
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+    <!-- <mu1>50</mu1>
+    <mu2>50</mu2> -->
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>50.0</mu>
+            <mu2>0.0</mu2>
+            <fdir1>1 1 0</fdir1>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <kp>1e50</kp>
+    <kd>1e50</kd>
+    <material>Gazebo/White</material>
+  </gazebo>
 
   <!-- Roller Gazebo -->
-  <xacro:engineer_roller_gazebo prefix="roller_LF_1"/>
+  <!-- <xacro:engineer_roller_gazebo prefix="roller_LF_1"/>
   <xacro:engineer_roller_gazebo prefix="roller_LF_2"/>
   <xacro:engineer_roller_gazebo prefix="roller_LF_3"/>
   <xacro:engineer_roller_gazebo prefix="roller_LF_4"/>
@@ -226,7 +338,7 @@
   <xacro:engineer_roller_gazebo prefix="roller_LB_13"/>
   <xacro:engineer_roller_gazebo prefix="roller_LB_14"/>
   <xacro:engineer_roller_gazebo prefix="roller_LB_15"/>
-  <xacro:engineer_roller_gazebo prefix="roller_LB_16"/>
+  <xacro:engineer_roller_gazebo prefix="roller_LB_16"/> -->
 
   <!-- Arm Gazebo -->
   <xacro:engineer_arm_gazebo prefix="base_link"/>
@@ -238,6 +350,13 @@
   <xacro:engineer_arm_gazebo prefix="link5"/>
   <xacro:engineer_arm_gazebo prefix="link6"/>
   <xacro:engineer_arm_gazebo prefix="link7"/>
+  <gazebo reference="gripper_link">
+    <mu1>50</mu1>
+    <mu2>50</mu2>
+    <material>Gazebo/Grey</material>
+    <self_collide>true</self_collide>
+    <gravity>true</gravity>
+  </gazebo>
 
   <xacro:engineer_arm_gazebo prefix="left_z_link"/>
   <xacro:engineer_arm_gazebo prefix="left_x_link"/>

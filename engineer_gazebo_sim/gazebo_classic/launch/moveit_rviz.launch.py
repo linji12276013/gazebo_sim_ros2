@@ -94,7 +94,7 @@ def my_generate_moveit_rviz_launch(ld, moveit_config):
     ld.add_action(
         DeclareLaunchArgument(
             "rviz_config",
-            default_value=str(gazebo_sim_path + "/gazebo_classic/config/moveit.rviz"),
+            default_value=str(gazebo_sim_path + "/gazebo_classic/config/engineer_moveit.rviz"),
         )
     )
 

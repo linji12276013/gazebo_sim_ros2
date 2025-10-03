@@ -4,12 +4,19 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from moveit_configs_utils import MoveItConfigsBuilder
 from launch_ros.substitutions import FindPackageShare
-from moveit_configs_utils.launch_utils import (
-    add_debuggable_node,
-    DeclareBooleanLaunchArg,
-)
-from launch_ros.parameter_descriptions import ParameterValue
-import os
+from ament_index_python.packages import get_package_share_directory
+from launch_param_builder import ParameterBuilder
+import os, yaml
+
+def load_yaml(package_name, file_path):
+    package_path = get_package_share_directory(package_name)
+    absolute_file_path = os.path.join(package_path, file_path)
+
+    try:
+        with open(absolute_file_path, "r") as file:
+            return yaml.safe_load(file)
+    except EnvironmentError:  # parent of IOError, OSError *and* WindowsError where available
+        return None
 
 def make_move_group_node(ns, moveit_config, joint_states_topic):
 
@@ -46,6 +53,7 @@ def make_move_group_node(ns, moveit_config, joint_states_topic):
     )
     return node
 
+
 def generate_launch_description():
     engineer_moveit_config = MoveItConfigsBuilder("engineer", package_name="engineer_moveit_config").to_moveit_configs()
     exchanger_moveit_config = MoveItConfigsBuilder("exchanger", package_name="exchanger_moveit_config").to_moveit_configs()
@@ -67,6 +75,28 @@ def generate_launch_description():
 
     ld.add_action(mg_engineer)
     ld.add_action(mg_exchanger)
+
+
+    # Get parameters for the Servo node
+    servo_yaml = load_yaml("engineer_gazebo_sim", "gazebo_classic/config/engineer_simulated_config.yaml")
+    servo_params = {"moveit_servo": servo_yaml}
+
+    # Launch a standalone Servo node.
+    # As opposed to a node component, this may be necessary (for example) if Servo is running on a different PC
+    servo_node = Node(
+        package="engineer_gazebo_sim",
+        executable="engineer_servo_control",
+        parameters=[
+            servo_params,
+            engineer_moveit_config.robot_description,
+            engineer_moveit_config.robot_description_semantic,
+            engineer_moveit_config.robot_description_kinematics,
+        ],
+        output="screen",
+    )
+
+    ld.add_action(servo_node)
+
 
     pkg_share = FindPackageShare(package="engineer_gazebo_sim").find("engineer_gazebo_sim")
     engineer_rviz = os.path.join(pkg_share, "gazebo_classic", "config", "engineer_moveit.rviz")
@@ -108,6 +138,6 @@ def generate_launch_description():
         parameters=exchanger_rviz_parameters,
     )
     ld.add_action(engineer_rviz_node)
-    ld.add_action(exchanger_rviz_node)
+    # ld.add_action(exchanger_rviz_node)
 
     return ld

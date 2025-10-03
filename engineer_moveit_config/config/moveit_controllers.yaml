@@ -4,11 +4,11 @@ moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControll
 
 moveit_simple_controller_manager:
   controller_names:
-    - /engineer/boom_controller
-    - /engineer/left_controller
-    - /engineer/right_controller
+    - boom_controller
+    - left_controller
+    - right_controller
 
-  /engineer/boom_controller:
+  boom_controller:
     type: FollowJointTrajectory
     joints:
       - link1_joint
@@ -20,7 +20,7 @@ moveit_simple_controller_manager:
       - link7_joint
     action_ns: follow_joint_trajectory
     default: true
-  /engineer/left_controller:
+  left_controller:
     type: FollowJointTrajectory
     joints:
       - left_z_joint
@@ -28,7 +28,7 @@ moveit_simple_controller_manager:
       - left_yaw_joint
     action_ns: follow_joint_trajectory
     default: true
-  /engineer/right_controller:
+  right_controller:
     type: FollowJointTrajectory
     joints:
       - right_z_joint

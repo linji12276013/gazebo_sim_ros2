@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<sdf version="1.6">
+<model name="handeyeboard">
+  <pose>2 0 0.6 0 0 3.14</pose>
+  <static>true</static>
+    <link name="handeyeboard_link">
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://handeyeboard/meshes/handeyeboard.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -9,28 +9,26 @@ static constexpr char KEYCODE_LEFT = 0x44;
 static constexpr char KEYCODE_UP = 0x41;
 static constexpr char KEYCODE_DOWN = 0x42;
 static constexpr char KEYCODE_SPACE = 0x20;
-static constexpr char KEYCODE_Q = 0x71;    // q键
-static constexpr char KEYCODE_E = 0x65;    // e键
+static constexpr char KEYCODE_Q = 0x71;
+static constexpr char KEYCODE_E = 0x65;
 
 class KeyboardControlNode : public rclcpp::Node
 {
 public:
     KeyboardControlNode() : Node("keyboard_control")
     {
-        // 创建发布器，设置命名空间为 /engineer
-        twist_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/engineer/cmd_vel", 10);
-        
-        // 初始化终端设置
+        vel_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/engineer/cmd_vel", 10);
+        twist_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/engineer/cmd_twist", 10);
+        pose_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/engineer/cmd_pose", 10);
+
         tcgetattr(STDIN_FILENO, &oldt);
         struct termios newt = oldt;
         newt.c_lflag &= ~(ICANON | ECHO);
         tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-        
-        timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(10),
-            std::bind(&KeyboardControlNode::timer_callback, this));
+
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&KeyboardControlNode::timer_callback, this));
     }
-    
+
     ~KeyboardControlNode()
     {
         tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
@@ -70,14 +68,16 @@ private:
                 default:
                     return;
             }
-            
-            twist_pub_->publish(twist);
+
+            vel_pub_->publish(twist);
             std::cout << "发布命令: linear.x=" << twist.linear.x << ", linear.y=" << twist.linear.y
                       << ", angular.z=" << twist.angular.z << std::endl;
         }
     }
-    
+
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr vel_pub_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_pub_;
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr pose_pub_;
     rclcpp::TimerBase::SharedPtr timer_;
     struct termios oldt;
     geometry_msgs::msg::Twist twist;

@@ -7,6 +7,7 @@
           <speed>12</speed>
         </clouds>
       </sky>
+      <!-- <background>0.3 0.3 0.3 1</background> -->
     </scene>
     <!-- A global light source -->
     <include>
@@ -19,5 +20,8 @@
     <include>
       <uri>model://gold</uri>
     </include>
+    <!-- <include>
+      <uri>model://wall</uri>
+    </include> -->
   </world>
 </sdf>
