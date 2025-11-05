@@ -7,6 +7,7 @@ moveit_simple_controller_manager:
     - boom_controller
     - left_controller
     - right_controller
+    - arm_controller
 
   boom_controller:
     type: FollowJointTrajectory
@@ -31,6 +32,24 @@ moveit_simple_controller_manager:
   right_controller:
     type: FollowJointTrajectory
     joints:
+      - right_z_joint
+      - right_x_joint
+      - right_yaw_joint
+    action_ns: follow_joint_trajectory
+    default: true
+  arm_controller:
+    type: FollowJointTrajectory
+    joints:
+      - left_z_joint
+      - left_x_joint
+      - left_yaw_joint
+      - link1_joint
+      - link2_joint
+      - link3_joint
+      - link4_joint
+      - link5_joint
+      - link6_joint
+      - link7_joint
       - right_z_joint
       - right_x_joint
       - right_yaw_joint

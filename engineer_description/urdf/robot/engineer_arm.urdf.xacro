@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find engineer_description)/urdf/robot/engineer_arm.gazebo"/>
+
+  <xacro:macro name="engineer_arm" params="prefix parent params">
+    <joint name="${prefix}_joint" type="${params.type}">
+      <parent link="${parent}"/>
+      <child link="${prefix}"/>
+      <origin xyz="${params.joint[0]} ${params.joint[1]} ${params.joint[2]}" rpy="${params.joint[3]} ${params.joint[4]} ${params.joint[5]}"/>
+      <axis xyz="${params.axis[0]} ${params.axis[1]} ${params.axis[2]}"/>
+      <limit lower="${params.limits[0]}" upper="${params.limits[1]}" effort="0" velocity="0" />
+    </joint>
+    <link name="${prefix}">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="file://$(find engineer_description)/meshes/visual/${prefix}/${prefix}.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="file://$(find engineer_description)/meshes/collision/${prefix}.STL" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="${params.inertial[0]} ${params.inertial[1]} ${params.inertial[2]}" rpy="0 0 0" />
+        <mass value="${params['mass']}" />
+        <inertia ixx="${params.inertia[0]}" ixy="${params.inertia[1]}" ixz="${params.inertia[2]}"
+                 iyy="${params.inertia[3]}" iyz="${params.inertia[4]}" izz="${params.inertia[5]}" />
+      </inertial>
+    </link>
+  </xacro:macro>
+</robot>

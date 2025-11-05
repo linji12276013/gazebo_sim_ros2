@@ -8,9 +8,7 @@ T clamp(T value, T low, T high) {
 struct PidController
 {
     // 参数
-    double kp{0.0};
-    double ki{0.0};
-    double kd{0.0};
+    double pid[3]{0.0};
 
     // 输出限制
     double output_min{-1e9};
@@ -27,7 +25,7 @@ struct PidController
     // 设置增益
     void setGains(double p, double i, double d)
     {
-        kp = p; ki = i; kd = d;
+        pid[0] = p; pid[1] = i; pid[2] = d;
     }
 
     // 设置输出限制
@@ -56,7 +54,7 @@ struct PidController
         else
             initialized = true;
 
-        double output = kp * error + ki * integral + kd * derivative;
+        double output = pid[0] * error + pid[1] * integral + pid[2] * derivative;
         output = clamp(output, output_min, output_max);
 
         prev_error = error;

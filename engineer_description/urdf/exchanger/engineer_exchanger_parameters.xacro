@@ -38,9 +38,9 @@
   <xacro:property name="elink5_inertial" value="${[-0.05, -0.05, 3.13E-19]}"/>
 
   <!-- link6参数 -->
-  <xacro:property name="elink6_joint" value="${[0.05, -0.125, 0, 1.5708, 0, 0]}"/>
+  <xacro:property name="elink6_joint" value="${[0.05, -0.39, 0, 1.5708, 0, 0]}"/>
   <xacro:property name="elink6_limits" value="${[-1.5708, 1.5708]}"/>
-  <xacro:property name="elink6_link" value="${[0, 0, 0, 0, 0, 0]}"/>
+  <xacro:property name="elink6_link" value="${[0, 0, -0.265, 0, 0, 0]}"/>
   <xacro:property name="elink6_inertial" value="${[-6.1756E-16, 3.0762E-16, 0.14137]}"/>
 
 </robot>

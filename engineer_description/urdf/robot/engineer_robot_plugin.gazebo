@@ -5,7 +5,7 @@
   <gazebo reference="engineer_depth_camera_link">
     <sensor type="depth" name="engineer_depth_camera_sensor">
       <always_on>1</always_on>
-      <update_rate>100</update_rate>
+      <update_rate>10</update_rate>
       <camera name="engineer_depth_camera">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
@@ -209,22 +209,4 @@
             <robot_param_node>robot_state_publisher</robot_param_node>
         </plugin>
     </gazebo>
-
-    <!-- 真空吸盘 -->
-    <gazebo>
-        <plugin name='vacuum_gripper' filename='libgazebo_ros_vacuum_gripper.so'>
-            <ros>
-                <namespace>/engineer/vacuum_gripper</namespace>
-                <remapping>switch:=engineer_boom_switch</remapping>
-                <remapping>grasping:=engineer_boom_grasping</remapping>
-            </ros>
-            <link_name>link7</link_name>
-            <!-- Max distance to attract entities -->
-            <max_distance>0.265</max_distance>
-            <!-- List of entities to be not attracted by the gripper -->
-            <fixed>ground_plane</fixed>
-            <fixed>exchanger</fixed>
-        </plugin>
-    </gazebo>
-
 </robot>

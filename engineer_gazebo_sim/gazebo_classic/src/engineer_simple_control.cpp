@@ -40,13 +40,13 @@ int main(int argc, char** argv)
     options.arguments({"--ros-args", "-r", "__ns:=/engineer"});
     auto node = std::make_shared<rclcpp::Node>("engineer_move_group_control", options);
     node->set_parameter(rclcpp::Parameter("use_sim_time", true));
-    node->declare_parameter("target_pose.position", std::vector<double>{0.5, 0.0, 0.13});
-    node->declare_parameter("target_pose.orientation", std::vector<double>{0.0, M_PI, 0.0});
+    node->declare_parameter("target_pose.position", std::vector<double>{0.5, 0.0, 0.5});
+    node->declare_parameter("target_pose.orientation", std::vector<double>{0, M_PI, M_PI_4});
 
     rclcpp::executors::SingleThreadedExecutor executor;
     executor.add_node(node);
     std::thread([&executor]() { executor.spin(); }).detach();
-
+    
     // 规划组
     moveit::planning_interface::MoveGroupInterface::Options exchanger_options(
         PLANNING_GROUP, "robot_description", node->get_namespace());

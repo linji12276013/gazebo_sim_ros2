@@ -31,5 +31,4 @@
 
     <link name="${prefix}_optical_link"/>
   </xacro:macro>
-
 </robot>

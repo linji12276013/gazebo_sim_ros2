@@ -1,19 +1,17 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   
-  <xacro:macro name="engineer_wheel_gazebo" params="prefix">
+  <xacro:macro name="engineer_wheel_gazebo" params="prefix params">
     <gazebo reference="wheel_${prefix}">
       <selfCollide>true</selfCollide>
       <gravity>true</gravity>
-      <!-- <mu1>50</mu1>
-      <mu2>50</mu2> -->
       <collision>
         <surface>
           <friction>
             <ode>
               <mu>1.0</mu>
-              <mu2>0.0</mu2>
-              <fdir1>1 1 0</fdir1>
+              <mu2>1.0</mu2>
+              <fdir1>${params.fdir1}</fdir1>
             </ode>
           </friction>
         </surface>

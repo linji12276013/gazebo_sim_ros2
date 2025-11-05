@@ -76,28 +76,6 @@ def generate_launch_description():
     ld.add_action(mg_engineer)
     ld.add_action(mg_exchanger)
 
-
-    # Get parameters for the Servo node
-    servo_yaml = load_yaml("engineer_gazebo_sim", "gazebo_classic/config/engineer_simulated_config.yaml")
-    servo_params = {"moveit_servo": servo_yaml}
-
-    # Launch a standalone Servo node.
-    # As opposed to a node component, this may be necessary (for example) if Servo is running on a different PC
-    servo_node = Node(
-        package="engineer_gazebo_sim",
-        executable="engineer_servo_control",
-        parameters=[
-            servo_params,
-            engineer_moveit_config.robot_description,
-            engineer_moveit_config.robot_description_semantic,
-            engineer_moveit_config.robot_description_kinematics,
-        ],
-        output="screen",
-    )
-
-    ld.add_action(servo_node)
-
-
     pkg_share = FindPackageShare(package="engineer_gazebo_sim").find("engineer_gazebo_sim")
     engineer_rviz = os.path.join(pkg_share, "gazebo_classic", "config", "engineer_moveit.rviz")
     exchanger_rviz = os.path.join(pkg_share, "gazebo_classic", "config", "exchanger_moveit.rviz")

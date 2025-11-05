@@ -40,19 +40,19 @@ private:
     {
         if (msg)
         {
-            linear_x.setpoint = msg->linear.x;
-            linear_y.setpoint = msg->linear.y;
-            angular_z.setpoint = msg->angular.z;
+            linear_x.setpoint += msg->linear.x * 0.01;
+            linear_y.setpoint += msg->linear.y * 0.01;
+            angular_z.setpoint += msg->angular.z * 0.01;
         }
     }
 
     void current_pose_callback(const nav_msgs::msg::Odometry::SharedPtr msg)
     {
         if (msg)
-        {
-            linear_x.measured_value = msg->pose.pose.position.x;
-            linear_y.measured_value = msg->pose.pose.position.y;
+        {   
             quaternion_to_euler(msg->pose.pose.orientation, angular_z.measured_value);
+            linear_x.measured_value = msg->pose.pose.position.x * cos(angular_z.measured_value) - msg->pose.pose.position.y * sin(angular_z.measured_value);
+            linear_y.measured_value = msg->pose.pose.position.x * sin(angular_z.measured_value) + msg->pose.pose.position.y * cos(angular_z.measured_value);
         }
     }
 

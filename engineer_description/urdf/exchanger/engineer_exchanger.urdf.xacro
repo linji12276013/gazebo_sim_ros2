@@ -1,13 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="exchanger">
-  
-  <!-- Import parameters -->
+
   <xacro:include filename="$(find engineer_description)/urdf/exchanger/engineer_exchanger_parameters.xacro" />
-
-  <!-- Import arm -->
   <xacro:include filename="$(find engineer_description)/urdf/exchanger/engineer_exchanger_arm.urdf.xacro"/>
-
-  <!-- Import plugin -->
   <xacro:include filename="$(find engineer_description)/urdf/exchanger/engineer_exchanger_plugin.gazebo"/>
 
   <link name="ebase_link">
@@ -53,23 +48,23 @@
       <inertia ixx="0.20405" ixy="-0.00011824" ixz="-0.00011824" iyy="0.15607" iyz="-0.0001037" izz="0.153" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin rpy="0 -1.5708 0" xyz="0 0 -0.24"/>
       <geometry>
-        <mesh filename="file://$(find engineer_description)/meshes/ore.STL" />
+        <mesh filename="file://$(find engineer_description)/meshes/collision/ore.STL" />
       </geometry>
       <material name="">
         <color rgba="0.1 0.1 0.1 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin rpy="0 -1.5708 0" xyz="0 0 -0.24"/>
       <geometry>
-        <mesh filename="file://$(find engineer_description)/meshes/ore.STL" />
+        <mesh filename="file://$(find engineer_description)/meshes/collision/ore.STL" />
       </geometry>
     </collision>
   </link>
   <joint name="ore_joint" type="fixed">
-    <origin xyz="0 0 0.025" rpy="0 -1.5708 0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
     <parent link="elink6" />
     <child link="ore" />
     <axis xyz="0 0 0" />
@@ -82,9 +77,9 @@
       <inertia ixx="0.21341" ixy="1.4488E-17" ixz="-1.4271E-17" iyy="0.16211" iyz="-1.4162E-17" izz="0.16211" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin rpy="0 -1.5708 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find engineer_description)/meshes/light.STL" />
+        <mesh filename="file://$(find engineer_description)/meshes/collision/light.STL" />
       </geometry>
       <material name="">
         <color rgba="0 0 1 1" />
@@ -92,14 +87,14 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin rpy="0 -1.5708 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find engineer_description)/meshes/light.STL" />
+        <mesh filename="file://$(find engineer_description)/meshes/collision/light.STL" />
       </geometry>
     </collision>
   </link>
   <joint name="light_joint" type="fixed">
-    <origin xyz="0.24 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
     <parent link="ore" />
     <child link="light" />
     <axis xyz="0 0 0" />
@@ -121,7 +116,7 @@
         </mesh>
       </geometry>
       <material>
-        <ambient>1 0 0 1</ambient>
+        <ambient>1 1 1 1</ambient>
         <diffuse>1 0 0 1</diffuse>
         <specular>1 0 0 0</specular>
         <emissive>1 0 0 1</emissive>

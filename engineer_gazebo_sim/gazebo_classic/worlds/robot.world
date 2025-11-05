@@ -7,7 +7,7 @@
           <speed>12</speed>
         </clouds>
       </sky>
-      <!-- <background>0.3 0.3 0.3 1</background> -->
+      <shadows>0</shadows>
     </scene>
     <!-- A global light source -->
     <include>
@@ -20,8 +20,6 @@
     <include>
       <uri>model://gold</uri>
     </include>
-    <!-- <include>
-      <uri>model://wall</uri>
-    </include> -->
+    <plugin name="model_attachment" filename="libboeing_gazebo_model_attachment_plugin_lib.so"></plugin>    
   </world>
 </sdf>

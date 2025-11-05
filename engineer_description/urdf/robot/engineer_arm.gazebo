@@ -3,7 +3,12 @@
 
   <xacro:macro name="engineer_arm_gazebo" params="prefix">
     <gazebo reference="${prefix}">
-      <material>Gazebo/Grey</material>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find engineer_description)/meshes/${prefix}/${prefix}.dae"/>
+        </geometry>
+      </visual>
       <self_collide>true</self_collide>
       <gravity>true</gravity>
     </gazebo>
